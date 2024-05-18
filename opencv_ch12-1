@@ -24,10 +24,10 @@ int main() {
 	cvtColor(src, dst, COLOR_GRAY2BGR);
 	rectangle(dst, Rect(stats.at<int>(a, 0), stats.at<int>(a, 1), stats.at<int>(a, 2), stats.at<int>(a, 3)), Scalar(0, 0, 255));
 	rectangle(dst, Rect(stats.at<int>(b, 0), stats.at<int>(b, 1), stats.at<int>(b, 2), stats.at<int>(b, 3)), Scalar(255, 0, 0));
-	cout << "¸éÀûÀÌ ÃÖ´ëÀÎ °´Ã¼ÀÇ ·¹ÀÌºí:" << a << endl;
-	cout << "¹«°ÔÁß½É:(x,y): " << setw(10) << x_max << setw(10) << y_max << endl;
-	cout << "¸éÀûÀÌ ÃÖ¼ÒÀÎ °´Ã¼ÀÇ ·¹ÀÌºí:" << b << endl;
-	cout << "¹«°ÔÁß½É:(x,y): " << setw(10) << x << setw(10) << y << endl;
+	cout << "ë©´ì ì´ ìµœëŒ€ì¸ ê°ì²´ì˜ ë ˆì´ë¸”:" << a << endl;
+	cout << "ë¬´ê²Œì¤‘ì‹¬:(x,y): " << setw(10) << x_max << setw(10) << y_max << endl;
+	cout << "ë©´ì ì´ ìµœì†Œì¸ ê°ì²´ì˜ ë ˆì´ë¸”:" << b << endl;
+	cout << "ë¬´ê²Œì¤‘ì‹¬:(x,y): " << setw(10) << x << setw(10) << y << endl;
 	imshow("src", dst);
 	waitKey();
 	return 0;
@@ -45,7 +45,7 @@ int main() {
 	threshold(src, bin, 150, 255, THRESH_BINARY_INV);
 	Mat labels, stats, centroids;
 	int cnt = connectedComponentsWithStats(bin, labels, stats, centroids);
-	cout << "°¹¼ö" << cnt << endl;
+	cout << "ê°¯ìˆ˜" << cnt << endl;
 	cout << "label x y width height area color[B,G,R]" << endl;
 	double x, y;
 	for (int i = 1; i < cnt; i++) {
@@ -77,7 +77,7 @@ int main() {
 	for (int i = 1; i < cnt; i++) {
 		double x = centroids.at<double>(i, 0);
 		double y = centroids.at<double>(i, 1);
-		cout << i << "¹ø °´Ã¼ÀÇ ¹«°ÔÁß½É:(" << x << ", " << y << ")" << endl;
+		cout << i << "ë²ˆ ê°ì²´ì˜ ë¬´ê²Œì¤‘ì‹¬:(" << x << ", " << y << ")" << endl;
 	}
 	return 0;
 }
